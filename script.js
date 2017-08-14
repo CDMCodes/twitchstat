@@ -23,7 +23,7 @@ $(document).ready(function(){
         infofields.forEach(function(val){
           htmladd +="<p>" + val + ": " + result.stream[val] + "</p>";
         });
-        var imgadd = "<a href=" + result._links.channel + "><img src="+ result.stream.channel.logo + "></a>" ;
+        var imgadd = '<a href=' + result.stream.channel.url + ' target="_blank"><img src='+ result.stream.channel.logo + '></a>' ;
         $(elm).parent().append(imgadd)
         $(elm).parent().append(htmladd);
       }
