@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
   //Twitch API query and DOM modification all at once
   function checkstreams(chanid, elm){
     qrystring = "https://wind-bow.gomix.me/twitch-api/streams/" + chanid + "?callback=?";
@@ -9,12 +10,17 @@ $(document).ready(function(){
       // console.log(elm); //returns passed in argument
       if(result.stream == null){
         $(elm).parent().append("<p>Sorry, not streaming right now.</p>");
+        if($(elm).parent().hasClass("fcc")){
+          $(elm).parent().append("<p>Try one of these other channels</p>")
+          $("#others").slideDown("slow",function(){
+            //animation complete, do nothing
+          })
+        }
       }else{
         $(elm).parent().append("<p>Here is the info!</p>");
       }
     });
   }
-
 
 // $(this).parent().append(<p>How about trying one of these other streamers?</p>");
 // $("#others").show();
@@ -22,6 +28,7 @@ $(document).ready(function(){
   $("#fccresult button").click(function(){
     var elm = this;
     checkstreams("freecodecamp", elm);
+
   });
 
   $("#others button").click(function(){
