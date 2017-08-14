@@ -1,28 +1,32 @@
 $(document).ready(function(){
-  //declare empty variable for API call return
-  var streamlist = "";
-  //stream API call as standalone function
-  function checkstreams(chanid){
+
+  //Twitch API query and DOM modification all at once
+  function checkstreams(chanid, elm){
     qrystring = "https://wind-bow.gomix.me/twitch-api/streams/" + chanid + "?callback=?";
     $.getJSON(qrystring,function(result){
       console.log(result);
-      streamlist = result;
-      //need to do something better here
+      // console.log(this); //returns getJSON function
+      // console.log(elm); //returns passed in argument
+      if(result.stream == null){
+        $(elm).parent().append("<p>Sorry, not streaming right now.</p>");
+      }else{
+        $(elm).parent().append("<p>Here is the info!</p>");
+      }
     });
   }
 
-  // checkstreams("freecodecamp");
-  // console.log(streamlist);
 
-  $("button").click(function(){
-    checkstreams("freecodecamp");
-    console.log(streamlist);
-    if(streamlist.stream == null){
-      $(this).parent().append("<p>Sorry, not streaming right now");
-    }else{
-      $(this).parent().append("<p>Here is the info!</p>");
-    }
-  })
+// $(this).parent().append(<p>How about trying one of these other streamers?</p>");
+// $("#others").show();
 
+  $("#fccresult button").click(function(){
+    var elm = this;
+    checkstreams("freecodecamp", elm);
+  });
+
+  $("#others button").click(function(){
+    var elm = this;
+    checkstreams("esl_sc2",elm);
+  });
 
 });
