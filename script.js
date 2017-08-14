@@ -17,6 +17,15 @@ $(document).ready(function(){
         }
       }else{
         $(elm).parent().append("<p>Here is the info!</p>");
+        var infofields = ["game","created_at","stream_type","viewers"];
+        // $(elm).parent().append("<p>Game: "+result.stream.game"</p>"+"<p>");
+        var htmladd = "";
+        infofields.forEach(function(val){
+          htmladd +="<p>" + val + ": " + result.stream[val] + "</p>";
+        });
+        var imgadd = "<a href=" + result._links.channel + "><img src="+ result.stream.channel.logo + "></a>" ;
+        $(elm).parent().append(imgadd)
+        $(elm).parent().append(htmladd);
       }
     });
   }
@@ -32,5 +41,7 @@ $(document).ready(function(){
     var elm = this;
     checkstreams("esl_sc2",elm);
   });
+
+  checkstreams("freecodecamp",$("#fccresult button"))
 
 });
