@@ -29,6 +29,7 @@ $(document).ready(function(){
       }
     });
   }
+  //should probably make this a reusable function
   $("#fccresult button").click(function(){
     $("#others").hide();
     $(this).siblings().remove();
@@ -36,10 +37,28 @@ $(document).ready(function(){
     checkstreams("freecodecamp", elm);
   });
 
-  $("#others button").click(function(){
+  $("#ESL_SC2 button").click(function(){
     $(this).siblings().remove();
     var elm = this;
-    checkstreams("esl_sc2",elm);
+    checkstreams("esl_sc2",elm); //use html data attributes for this?
+  });
+
+  $("#storbeck button").click(function(){
+    $(this).siblings().remove();
+    var elm = this;
+    checkstreams("storbeck",elm);
+  });
+
+  $("#cretetion button").click(function(){
+    $(this).siblings().remove();
+    var elm = this;
+    checkstreams("cretetion",elm);
+  });
+
+  $("#RobotCaleb button").click(function(){
+    $(this).siblings().remove();
+    var elm = this;
+    checkstreams("RobotCaleb",elm);
   });
 
   checkstreams("freecodecamp",$("#fccresult button"))

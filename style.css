@@ -1,12 +1,53 @@
 body {
   text-align: center;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
 }
-
 h1 {
   color: darkgreen;
   text-align: center;
+  font-weight: 400;
 }
+footer {
+  position: fixed;
+  width: 100%;
+  margin: auto;
+  left: 0;
+  color: lightgrey;
+  font-size: .75em;
+}
+button {
+  background-color: darkgreen;
+  color: white;
+  font-weight: 200;
+  font-size: .75em;
+  border: 0;
+}
+button:hover {
+  background-color: green;
+  box-shadow: 2px 2px #c3c1c1;
+}
+img {
+  height: 50%;
+  width: 50%;
+  border-radius: 50%;
+  display: inline-block;
+}
+div {
+  border-width: 0px 2px 2px 0px;
+  border-color: black;
+  border-style: solid;
+  box-shadow: 2px 2px 3px grey;
+  text-align: left;
+}
+div:hover{
 
+}
+div p {
+  color: darkgrey;
+  font-size: .65em;
+  display: inline-block;
+}
 #others{
   display:none;
 }

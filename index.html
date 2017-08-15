@@ -4,18 +4,32 @@
   <meta charset = "utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://use.fontawesome.com/12de74e8e1.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
   <link href="style.css" type="text/css" rel="stylesheet"/>
   <title>fCC Twitch Status</title>
 </head>
 <body>
-  <h1>Is freeCodeCamp <i class="fa fa-free-code-camp" aria-hidden="true"></i> streaming?</h1>
+  <i class="fa fa-free-code-camp" aria-hidden="true"></i><h1>Is freeCodeCamp  streaming?</h1>
   <div class="fcc" id="fccresult">
-    <button>Check FCC streams</button>
+    <button><i class="fa fa-free-code-camp" aria-hidden="true"></i></button>
   </div>
-  <div id="others">
-    <button>Check ESL_SC2 streams</button>
+  <div class="others" id="ESL_SC2">
+    <button>ESL_SC2</button>
+  </div>
+  <div class="others" id="storbeck">
+    <button>storbeck</button>
+  </div>
+  <div class="others" id="cretetion">
+    <button>cretetion</button>
+  </div>
+  <div class="others" id="RobotCaleb">
+    <button>RobotCaleb</button>
   </div>
 
+  <footer>
+    <p>Part of the <a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a> curriculum</p>
+    <p>Streaming data from the twich API via the <a href="https://wind-bow.glitch.me/" target="_blank">fCC API pass through</a></p>
+  </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="script.js" type="text/javascript"></script>
 </body>
