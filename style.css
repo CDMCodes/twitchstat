@@ -28,7 +28,7 @@ footer p {
   margin: 0;
   padding: 1px;
   font-weight: lighter;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 button {
   background-color: darkgreen;
@@ -63,7 +63,7 @@ div {
   overflow: auto;
 }
 div p {
-  color: white;
+  color: #404040; /*kind of a dark grey*/
   font-size: .85em;
   display: block;
   margin: 0 auto;
@@ -90,6 +90,7 @@ div p {
   display: block;
   padding: 1px;
   margin: 1px 1px 1px 10px;
+  color: darkgreen;
 
 }
 .strmdetails button{

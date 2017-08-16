@@ -30,7 +30,7 @@ $(document).ready(function(){
         infofields.forEach(function(val){
           paradd +="<p>" + val + ": " + result.stream[val] + "</p>";
         });
-        streamdiv = "<div class='strmdetails'>" + imgadd + "<button>Collapse</button>" + paradd + "</div>";
+        streamdiv = "<div class='strmdetails'>" + imgadd + "<button class='collapse'>Collapse</button>" + paradd + "</div>";
         $(elm).parent().append(streamdiv);
         // var imgadd = '<a href=' + result.stream.channel.url + ' target="_blank"><img src='+ result.stream.channel.logo + '></a>' ;
         // $(elm).parent().append(imgadd)
@@ -43,6 +43,7 @@ $(document).ready(function(){
       }
     });
   }
+
   //should probably make this a reusable function
   $("#fccresult button").click(function(){
     $("#others").hide();
@@ -51,6 +52,7 @@ $(document).ready(function(){
     checkstreams("freecodecamp", elm);
   });
 
+  //repeat above but for the 5 other streams
   $("#ESL_SC2 button").click(function(){
     $(this).siblings().remove();
     var elm = this;
@@ -73,6 +75,11 @@ $(document).ready(function(){
     $(this).siblings().remove();
     var elm = this;
     checkstreams("RobotCaleb",elm);
+  });
+
+  //collapse button hides all streamdetails divs
+  $(".strmbox").on("click",".collapse",function(){
+    $(".strmdetails").hide('slow');
   });
 
   checkstreams("freecodecamp",$("#fccresult button"))
