@@ -30,8 +30,9 @@ $(document).ready(function(){
         infofields.forEach(function(val){
           paradd +="<p>" + val + ": " + result.stream[val] + "</p>";
         });
-        streamdiv = "<div class='strmdetails'>" + imgadd + "<button class='collapse'>Collapse</button>" + paradd + "</div>";
+        streamdiv = "<div class='strmdetails'>" + imgadd + "<div>" + paradd + "</div><button class='collapse'>Collapse</button></div>";
         $(elm).parent().append(streamdiv);
+        $(elm).parent().find('.strmdetails').slideDown();
         // var imgadd = '<a href=' + result.stream.channel.url + ' target="_blank"><img src='+ result.stream.channel.logo + '></a>' ;
         // $(elm).parent().append(imgadd)
         // var infofields = ["game","created_at","stream_type","viewers"];
