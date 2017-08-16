@@ -16,23 +16,30 @@ $(document).ready(function(){
         }
       }else{
         $(elm).parent().addClass("streaming");
-        //better results is to add child div with collapse button,
+        //Better tactic is to add child div with collapse button,
         // image, and stream details.  That way collapse button could hide it's
         // parent div and still leave the initial button
-        $(elm).parent().append("<button class='collapse'>Collapse</button>");
 
+        //build everything you want to append
+        var streamdiv = "";
         //Nest image inside anchor linked to stream url
-        var imgadd = '<a href=' + result.stream.channel.url + ' target="_blank"><img src='+ result.stream.channel.logo + '></a>' ;
-        $(elm).parent().append(imgadd)
-
+        var imgadd = '<a href=' + result.stream.channel.url + ' target="_blank"><img src='+ result.stream.channel.logo + '></a>'
         //loop through 4 keys named in this array and grab values for stream info
         var infofields = ["game","created_at","stream_type","viewers"];
-        var htmladd = "";
+        var paradd = "";
         infofields.forEach(function(val){
-          htmladd +="<p>" + val + ": " + result.stream[val] + "</p>";
+          paradd +="<p>" + val + ": " + result.stream[val] + "</p>";
         });
-
-        $(elm).parent().append(htmladd);
+        streamdiv = "<div class='strmdetails'>" + imgadd + "<button>Collapse</button>" + paradd + "</div>";
+        $(elm).parent().append(streamdiv);
+        // var imgadd = '<a href=' + result.stream.channel.url + ' target="_blank"><img src='+ result.stream.channel.logo + '></a>' ;
+        // $(elm).parent().append(imgadd)
+        // var infofields = ["game","created_at","stream_type","viewers"];
+        // var htmladd = "";
+        // infofields.forEach(function(val){
+        //   htmladd +="<p>" + val + ": " + result.stream[val] + "</p>";
+        // });
+        // $(elm).parent().append(htmladd);
       }
     });
   }

@@ -40,14 +40,14 @@ button {
   margin: 1% 5% 1% 0;
   width: 100px;
   float: left;
-  /*clear: left;*/
+  clear: left;
 }
 button:hover {
   background-color: green;
-  box-shadow: 2px 2px #c3c1c1;
+  box-shadow: 2px 2px darkgrey;
 }
 img {
-  width: 20%;
+  width: 33%;
   border-radius: 50%;
   display: inline-block;
   float: left;
@@ -64,7 +64,7 @@ div {
 }
 div p {
   color: white;
-  font-size: .75em;
+  font-size: .85em;
   display: block;
   margin: 0 auto;
   padding: 1px;
@@ -80,14 +80,19 @@ div p {
 }
 .strmdetails{
   float: left;
-  display: inline-block;
-  clear:right;
+  /*display: inline-block;*/
+  clear:left;
+  background-color: rgba(0, 112, 41,0.25)
+  border: none;
+  box-shadow: none;
 }
 .strmdetails p {
   display: block;
   padding: 1px;
-  margin: 1px;
+  margin: 1px 1px 1px 10px;
+
 }
 .strmdetails button{
-  float: right;
+  float: left;
+  clear: left;
 }
