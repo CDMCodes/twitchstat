@@ -8,46 +8,86 @@ h1 {
   text-align: center;
   font-weight: 400;
 }
+i {
+  font-weight: bolder;
+}
+
 footer {
   position: fixed;
   width: 100%;
   margin: auto;
   left: 0;
+  bottom: 0;
   color: lightgrey;
   font-size: .75em;
+  color: black;
+  font-style:italic;
+  padding: 0;
+}
+footer p {
+  margin: 0;
+  padding: 1px;
+  font-weight: lighter;
+  font-size: 0.8em;
 }
 button {
   background-color: darkgreen;
   color: white;
-  font-weight: 200;
-  font-size: .75em;
-  border: 0;
+  font-weight: bold;
+  font-size: .9em;
+  border: none;
+  box-shadow: none;
+  margin: 1% 5% 1% 0;
+  width: 100px;
+  float: left;
+  /*clear: left;*/
 }
 button:hover {
   background-color: green;
   box-shadow: 2px 2px #c3c1c1;
 }
 img {
-  height: 50%;
-  width: 50%;
+  width: 20%;
   border-radius: 50%;
   display: inline-block;
+  float: left;
+  margin: 5px;
 }
 div {
-  border-width: 0px 2px 2px 0px;
-  border-color: black;
-  border-style: solid;
-  box-shadow: 2px 2px 3px grey;
+  /*border-width: 0px 2px 2px 0px;*/
+  /*border-color: black;*/
+  /*border-style: solid;*/
+  box-shadow: 2px 2px 5px grey;
   text-align: left;
-}
-div:hover{
-
+  margin: 10px auto;
+  overflow: auto;
 }
 div p {
-  color: darkgrey;
-  font-size: .65em;
-  display: inline-block;
+  color: white;
+  font-size: .75em;
+  display: block;
+  margin: 0 auto;
+  padding: 1px;
 }
-#others{
+.others{
   display:none;
+}
+.streaming{
+  background-color: rgba(0, 112, 41,0.25);
+}
+.offline{
+  background-color: lightgrey;
+}
+.strmdetails{
+  float: left;
+  display: inline-block;
+  clear:right;
+}
+.strmdetails p {
+  display: block;
+  padding: 1px;
+  margin: 1px;
+}
+.strmdetails button{
+  float: right;
 }
