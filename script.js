@@ -16,9 +16,9 @@ $(document).ready(function(){
         }
       }else{
         $(elm).parent().addClass("streaming");
-        //Better tactic is to add child div with collapse button,
-        // image, and stream details.  That way collapse button could hide it's
-        // parent div and still leave the initial button
+        //Show collapse button, hide query button
+        $(elm).parent().find('.collapse').show();
+        $(elm).hide();
 
         //build everything you want to append
         var streamdiv = "";
@@ -30,23 +30,16 @@ $(document).ready(function(){
         infofields.forEach(function(val){
           paradd +="<p>" + val + ": " + result.stream[val] + "</p>";
         });
-        streamdiv = "<div class='strmdetails'>" + imgadd + "<div>" + paradd + "</div><button class='collapse'>Collapse</button></div>";
+        streamdiv = "<div class='strmdetails'>" + imgadd + "<div>" + paradd + "</div></div>";
+
         $(elm).parent().append(streamdiv);
         $(elm).parent().find('.strmdetails').slideDown();
-        // var imgadd = '<a href=' + result.stream.channel.url + ' target="_blank"><img src='+ result.stream.channel.logo + '></a>' ;
-        // $(elm).parent().append(imgadd)
-        // var infofields = ["game","created_at","stream_type","viewers"];
-        // var htmladd = "";
-        // infofields.forEach(function(val){
-        //   htmladd +="<p>" + val + ": " + result.stream[val] + "</p>";
-        // });
-        // $(elm).parent().append(htmladd);
       }
     });
   }
 
   //should probably make this a reusable function
-  $("#fccresult button").click(function(){
+  $("#fccresult .query").click(function(){
     $("#others").hide();
     $(this).siblings().remove();
     var elm = this;
@@ -54,25 +47,25 @@ $(document).ready(function(){
   });
 
   //repeat above but for the 5 other streams
-  $("#ESL_SC2 button").click(function(){
-    $(this).siblings().remove();
+  $("#ESL_SC2 .query").click(function(){
+    $(this).siblings('p').remove();
     var elm = this;
     checkstreams("esl_sc2",elm); //use html data attributes for this?
   });
 
-  $("#storbeck button").click(function(){
+  $("#storbeck .query").click(function(){
     $(this).siblings().remove();
     var elm = this;
     checkstreams("storbeck",elm);
   });
 
-  $("#cretetion button").click(function(){
+  $("#cretetion .query").click(function(){
     $(this).siblings().remove();
     var elm = this;
     checkstreams("cretetion",elm);
   });
 
-  $("#RobotCaleb button").click(function(){
+  $("#RobotCaleb .query").click(function(){
     $(this).siblings().remove();
     var elm = this;
     checkstreams("RobotCaleb",elm);
@@ -80,7 +73,13 @@ $(document).ready(function(){
 
   //collapse button hides all streamdetails divs
   $(".strmbox").on("click",".collapse",function(){
-    $(".strmdetails").hide('slow');
+    //hide box then remove it, so next button push doesn't create doubles
+    $(".strmdetails").hide('slow',function(){
+      $(".strmdetails").remove();
+    });
+    //hide the collapse button and show the query button again
+    $(this).hide();
+    $('.query').show();
   });
 
   checkstreams("freecodecamp",$("#fccresult button"))

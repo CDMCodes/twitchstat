@@ -52,8 +52,10 @@ button:hover {
 img {
   width: 33%;
   border-radius: 50%;
-  display: inline-block;
+  display: block;
+  /*display: inline-block;*/
   float: left;
+  clear: left;
   margin: 5px;
 }
 div {
@@ -85,24 +87,30 @@ div p {
 .strmdetails{
   float: left;
   display: none;
-  clear:left;
+  clear:right;
   background-color: rgba(0, 112, 41,0.25)
   border: none;
   box-shadow: none;
 }
 .strmdetails p {
-  display: block;
+  /*display: block;*/
   padding: 1px;
   margin: 1px 1px 1px 10px;
   color: darkgreen;
 
 }
-.strmdetails button{
+/*.strmdetails button{
   float: left;
   clear: left;
-}
+}*/
 .strmdetails div{
   box-shadow: none;
+  float: left;
+  display: inline-block;
+  clear: right;
+}
+.collapse{
+  display: none;
 }
 
 @media (min-width: 700px ){
